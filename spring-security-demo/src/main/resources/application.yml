@@ -1,0 +1,31 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/springsecuritydemo?useSSL=true&serverTimezone=UTC&characterEncoding=utf-8
+    username: root
+    password: moon2003
+  session:
+    store-type: none #先关闭session
+
+
+server:
+  port: 8321
+security:
+  basic:
+    enabled: true   #关闭security安全校验
+
+whoops:
+  security:
+    browser:
+      loginPage: /demo_login.html #设置自定义的登录页面
+      #登录成功或失败以后返回的处理方式 REDIRECT,直接跳转到对应的页面;JSON:返回json格式数据
+      loginType: JSON
+      rememberMeSeconds: 864000 #10天
+    code:
+      image:
+        expireInt: 120 #超时时间
+        url: /login-in #验证码拦截的url配置
+    social:
+      qq:
+        appId:
+        appSecret:
